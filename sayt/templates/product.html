@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="main-section">
+    <!-- Page Title -->
+        <div class="main-section__title">
+            <h2>
+                <i class="fa-solid fa-mobile-screen"></i>
+                Mahsulot
+            </h2>
+        </div>
+        <!-- Product -->
+        <div class="main-section__product">
+
+            <h2 class="main-section__product--title">{{ product.name }}</h2>
+            <!-- Product Image -->
+            <div class="main-section__product--cont">
+                <div class="pictures">
+                    <div class="thumbs">
+                        {% for image in product.rasmlar.all %}
+                            <img src="{{ image.rasm.url  }}" alt="Product Images" onclick="changePhoto(this)">
+                        {% endfor %}
+                    </div>
+                    <div class="img">
+                        <img src="{{ product.asos.rasm.url }}" alt="Product Image" id="expandedImg">
+                    </div>
+                </div>
+                <div class="info">
+                    {% for post in posts %}
+                    <p>
+                        <i class="fa-solid fa-location-dot" style = 'margin: 20px 0;'></i>
+                        Joylashuv:
+                        <span>{{ post.joylashuv }}</span>
+                    </p>
+                    <p>
+                        Yetkazib berish:
+                        <span>{{ post.yetkazib_berish }} so'm</span>
+                    </p>
+                    <p>
+                        Oldindan to'lov:
+                        <span>{{ post.oldindan_tulov }} so'm</span>
+                    </p>
+                    <p class="credit">
+                        Kredit:
+                        <!-- Product with Discount -->
+                        <!-- <span class="del">250,000 so'm</span> -->
+                        <!-- /Product with Discount -->
+                        <span>{{ post.kredit_12oy }} so'm x 12 oy</span>
+                        <span>{{ post.kredit_6oy }} so'm x 6 oy</span>
+                    </p>
+                    <p>
+                        Kerakli hujjatlar:
+                        <span>{{ post.kredit_xujat }}</span>
+                    </p>
+                    <p class="book">
+
+                        <h2>{{ post.tel_raqam1 }}</h2>
+
+                        <h2>{{ post.tel_raqam1 }}</h2>
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+            {% for list in lists %}
+            <div>
+                <p class="main-section__product--info">
+                    <h3>Xususiyatlar</h3>
+                <h3> {{ list.title }} </h3>
+                <h3> {{ list.batafsil }} </h3>
+
+                </p>
+            </div>         <!-- Product Image -->
+            {% endfor %}
+            <!-- Product Info -->
+
+
+            <!-- /Product Info -->
+        </div>
+    </section>
+    <!-- Main Section -->
+{% endblock %}

@@ -1,0 +1,148 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telefonlar</title>
+    <!-- Meta Tags -->
+    <!-- Here will be... -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <ul class="header__cont">
+            <li class="header__cont--logo" id="logo" title="telefonlar.com">
+                <a href="{% url 'Bosh_sahifa' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" class="big">
+                    <img src="{% static 'images/logo2.png' %}" alt="Logo" class="small">
+                </a>
+            </li>
+            <ul class="header__cont--menu">
+                <li class="header__cont--search" id="search">
+                    <!-- Seach Bar -->
+                    <i class="fa-solid fa-search"></i>
+                    <input type="search" placeholder="Qidiruv" id="searchBar">
+                    <!-- /Search Bar -->
+                </li>
+                <li class="header__cont--btn-box">
+                    <button class="header__cont--btn btn" id="offCanvasBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </li>
+            </ul>
+        </ul>
+    </header>
+    <!-- /Header -->
+
+    <!-- Off-canvas -->
+    <div class="off-canvas" id="offCanvas">
+        <!-- Title -->
+        <div class="off-canvas__title">
+            <h2>Sahifalarimiz</h2>
+            <button class="off-canvas__close btn" id="offCanvasClose">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+        <!-- /Title -->
+        <!-- About Page Link -->
+        <div class="off-canvas__social">
+            <a href="{% url 'Bosh_sahifa' %}">
+                <i class="fa-solid fa-house"></i>
+                Bosh sahifa
+            </a>
+            <a href="{% url 'bizxaqimizda' %}">
+                <i class="fa-solid fa-circle-question"></i>
+                Biz haqimizda
+            </a>
+            <a href="{% url 'Boglanish' %}">
+                <i class="fa-solid fa-comments"></i>
+                Bog'lanish
+            </a>
+        </div>
+        <!-- About Page Link -->
+        <!-- Contact Links -->
+        <p class="off-canvas__info">
+            Aloqa markazimiz orqali bizga bog'laning:
+        </p>
+        {% for Ijtimoiytarmog in object_list %}
+        <div class="off-canvas__social">
+            <a href="{{ Ijtimoiytarmog.e_mail }}" target="_blank">
+                <i class="fa fa-envelope"></i>
+                <h3>{{ Ijtimoiytarmog.e_mail }}</h3>
+            </a>
+            <a href="{{ Ijtimoiytarmog.tel_raqam1 }}">
+                <i class="fa fa-phone"></i>
+                <h3>{{ Ijtimoiytarmog.tel_raqam1 }}</h3>
+            </a>
+            <a href="{{ Ijtimoiytarmog.tel_raqam1 }}">
+                <i class="fa fa-phone"></i>
+                <h3>{{ Ijtimoiytarmog.tel_raqam1 }}</h3>
+            </a> 
+        </div>
+        {% endfor %}
+        <p class="off-canvas__info">
+            <i class="fa-solid fa-circle-info"></i>
+            Qo'ng'iroq qilish uchun raqam ustiga bosing.
+        </p>
+        <!-- /Contact Links -->
+        <!-- Social Links -->
+        <div class="off-canvas__social">
+            <a href="https://instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <i class="fab fa-facebook"></i>
+                Facebook
+            </a>
+            <a href="https://telegram.me" target="_blank">
+                <i class="fab fa-telegram"></i>
+                Telegram
+            </a>
+            <a href="https://whatsapp.com" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+        </div>
+        <p class="off-canvas__info">
+            Ijtimoiy tarmoqlar orqali bizni kuzatib boring.
+        </p>
+        <!-- /Social Links -->
+    </div>
+    <!-- /Off-canvas -->
+{% block content %}
+
+    {% endblock %}
+   
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__info">
+            <h3>Telefonlar | 2022</h3>
+        </div>
+        <div class="footer__social">
+            <a href="https://instagram.com" target="_blank" class="btn">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="btn">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://telegram.me" target="_blank" class="btn">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://whatsapp.com" target="_blank" class="btn">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

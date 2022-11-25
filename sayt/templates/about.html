@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Main Section -->
+<section class="main-section">
+    <!-- Page Title -->
+        <div class="main-section__title">
+            <h2>
+                <i class="fa-solid fa-circle-question"></i>
+                  Biz haqimizda
+            </h2>
+        </div>
+        <!-- /Page Title -->
+
+        <div class="main-section__info">
+                <p>{{ post|safe }}</p>
+
+        </div>
+    </section>
+{% endblock %}
